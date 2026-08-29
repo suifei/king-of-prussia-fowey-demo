@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The King of Prussia · Fowey</title>
+  <meta name="description" content="Historic pub with rooms on Fowey's Town Quay. Six estuary bedrooms, proper British food, Carter's quayside bar. Telephone 01726 211061.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500;1,6..96,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --estuary: #0a3d42;
+      --estuary-mid: #12565c;
+      --estuary-deep: #062226;
+      --tide: #1a6b72;
+      --foam: #cfe3de;
+      --granite: #3c454c;
+      --granite-deep: #1c2328;
+      --brass: #d6a44c;
+      --brass-soft: #ebc57a;
+      --brass-deep: #a87a28;
+      --sail: #f5edd9;
+      --sail-deep: #e7d8bc;
+      --ink: #161b1e;
+      --muted: #3f4a50;
+      --rule: rgba(10, 61, 66, 0.16);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+    body {
+      font-family: "Atkinson Hyperlegible", "Segoe UI", sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--sail);
+      padding-bottom: 4.6rem;
+    }
+    img, svg { display: block; }
+    a { color: var(--estuary-mid); text-underline-offset: 0.16em; }
+    a:hover { color: var(--estuary-deep); }
+    :focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(40rem, calc(100% - 1.5rem));
+      margin-inline: auto;
+    }
+    .wrap-wide {
+      width: min(54rem, calc(100% - 1.5rem));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass-deep);
+    }
+
+    .skip {
+      position: absolute;
+      left: 0.75rem;
+      top: -3.2rem;
+      background: var(--brass);
+      color: var(--estuary-deep);
+      padding: 0.45rem 0.75rem;
+      font-weight: 700;
+      z-index: 30;
+      text-decoration: none;
+    }
+    .skip:focus { top: 0.75rem; }
+
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      color: var(--sail);
+      background:
+        radial-gradient(ellipse 40% 120% at 0% 50%, rgba(214, 164, 76, 0.18), transparent 55%),
+        linear-gradient(180deg, #243035 0%, var(--granite-deep) 100%);
+      border-bottom: 3px solid var(--brass);
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.45rem 0.9rem;
+      min-height: 3.2rem;
+      width: min(54rem, calc(100% - 1.5rem));
+      margin-inline: auto;
+      padding: 0.4rem 0;
+    }
+    .nav-mark {
+      font-family: "Bodoni Moda", "Palatino Linotype", Palatino, serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--sail);
+      text-decoration: none;
+      line-height: 1.15;
+    }
+    .nav-mark span {
+      display: block;
+      font-family: "Atkinson Hyperlegible", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass-soft);
+    }
+    .nav-mark:hover { color: var(--brass-soft); }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.15rem 0.15rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--sail);
+      text-decoration: none;
+      font-size: 0.92rem;
+      min-height: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.55rem;
+    }
+    .nav-links a:hover { color: var(--brass-soft); }
+    .nav-links a.call {
+      background: var(--brass);
+      color: var(--estuary-deep);
+      font-weight: 700;
+      padding: 0.35rem 0.8rem;
+      margin-left: 0.25rem;
+    }
+    .nav-links a.call:hover { background: var(--brass-soft); color: var(--estuary-deep); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--sail);
+      background:
+        radial-gradient(circle at 88% 18%, rgba(235, 197, 122, 0.32), transparent 22%),
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 17px,
+          rgba(207, 227, 222, 0.045) 17px 18px
+        ),
+        linear-gradient(165deg, var(--estuary) 0%, #0c4a50 42%, var(--estuary-deep) 100%);
+      padding: 2.4rem 0 0;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 2.2rem;
+    }
+    .lantern {
+      width: 1.35rem;
+      height: 1.35rem;
+      margin-bottom: 0.85rem;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fff6d6, var(--brass) 55%, var(--brass-deep));
+      box-shadow:
+        0 0 0 4px rgba(214, 164, 76, 0.18),
+        0 0 28px 8px rgba(214, 164, 76, 0.35);
+    }
+    .hero .where {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass-soft);
+    }
+    .hero h1 {
+      font-family: "Bodoni Moda", Palatino, serif;
+      font-weight: 600;
+      font-size: clamp(2.35rem, 11vw, 4.1rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-top: 0.45rem;
+    }
+    .hero h1 em {
+      display: block;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 0.62em;
+      color: var(--brass-soft);
+    }
+    .hero .line {
+      margin-top: 1.05rem;
+      max-width: 28rem;
+      color: var(--foam);
+      font-size: 1.08rem;
+    }
+    .hero .rooms {
+      margin-top: 0.7rem;
+      color: #d5e4df;
+    }
+    .hero address {
+      margin-top: 0.85rem;
+      font-style: normal;
+      font-size: 0.95rem;
+      color: #b7c9c5;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1.35rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.85rem;
+      padding: 0.55rem 1.15rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .btn-solid {
+      background: var(--brass);
+      color: var(--estuary-deep);
+    }
+    .btn-solid:hover { background: var(--brass-soft); color: var(--estuary-deep); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--sail);
+      box-shadow: inset 0 0 0 2px rgba(245, 237, 217, 0.55);
+    }
+    .btn-ghost:hover { box-shadow: inset 0 0 0 2px var(--brass-soft); color: var(--brass-soft); }
+    .btn-ink {
+      background: var(--estuary);
+      color: var(--sail);
+    }
+    .btn-ink:hover { background: var(--estuary-deep); color: var(--sail); }
+    .btn-line {
+      background: transparent;
+      color: var(--estuary);
+      box-shadow: inset 0 0 0 2px var(--estuary);
+    }
+    .btn-line:hover { background: var(--estuary); color: var(--sail); }
+
+    .tide {
+      height: 2.4rem;
+      margin-top: 0.4rem;
+      color: var(--sail);
+    }
+    .tide svg { width: 100%; height: 100%; }
+
+    section { padding: 2.55rem 0; }
+    section h2 {
+      font-family: "Bodoni Moda", Palatino, serif;
+      font-weight: 600;
+      font-size: clamp(1.6rem, 5.6vw, 2.2rem);
+      line-height: 1.12;
+      color: var(--estuary);
+      margin: 0.35rem 0 0.95rem;
+    }
+
+    .house p { margin-bottom: 0.9rem; }
+    .house p:last-of-type { margin-bottom: 0; }
+
+    .windows {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.4rem;
+      margin-top: 1.4rem;
+      max-width: 16rem;
+    }
+    .windows span {
+      aspect-ratio: 1 / 1.15;
+      background:
+        linear-gradient(180deg, rgba(235, 197, 122, 0.55), rgba(10, 61, 66, 0.15));
+      box-shadow: inset 0 0 0 2px var(--estuary);
+    }
+
+    .hours {
+      background: var(--estuary-deep);
+      color: var(--sail);
+    }
+    .hours h2 { color: var(--sail); }
+    .hours .eyebrow { color: var(--brass-soft); }
+    .hours .lede {
+      color: #c5d6d2;
+      margin-bottom: 1.15rem;
+    }
+    .tide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.98rem;
+    }
+    .tide-table th,
+    .tide-table td {
+      text-align: left;
+      padding: 0.7rem 0.55rem;
+      border-bottom: 1px solid rgba(207, 227, 222, 0.14);
+      vertical-align: top;
+    }
+    .tide-table thead th {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass-soft);
+      font-weight: 700;
+      border-bottom: 2px solid var(--brass);
+    }
+    .tide-table th:first-child,
+    .tide-table td:first-child {
+      padding-left: 0;
+      font-family: "Bodoni Moda", Palatino, serif;
+      font-weight: 600;
+    }
+    .tide-table .shut { color: #9bb8b4; }
+
+    .tables { background: var(--sail-deep); }
+    .rules {
+      display: grid;
+      gap: 0.7rem;
+    }
+    @media (min-width: 560px) {
+      .rules { grid-template-columns: 1fr 1fr; }
+    }
+    .rule {
+      background: var(--sail);
+      padding: 0.95rem 1rem 1.05rem;
+      border-top: 3px solid var(--estuary);
+    }
+    .rule strong {
+      display: block;
+      font-family: "Bodoni Moda", Palatino, serif;
+      font-size: 1.08rem;
+      color: var(--estuary);
+      margin-bottom: 0.25rem;
+    }
+    .rule p { color: var(--muted); font-size: 0.98rem; }
+
+    .stay {
+      background: var(--sail);
+    }
+    .stay .lede { margin-bottom: 0.9rem; }
+    .stay-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 1.2rem 0 1.35rem;
+    }
+    .stay-facts span {
+      font-size: 0.88rem;
+      font-weight: 700;
+      background: var(--sail-deep);
+      color: var(--estuary);
+      padding: 0.4rem 0.7rem;
+    }
+
+    .carters {
+      background:
+        radial-gradient(circle at 12% 20%, rgba(214, 164, 76, 0.2), transparent 28%),
+        linear-gradient(180deg, var(--estuary) 0%, var(--estuary-deep) 100%);
+      color: var(--sail);
+    }
+    .carters h2 { color: var(--sail); }
+    .carters .eyebrow { color: var(--brass-soft); }
+    .carters p { margin-bottom: 0.85rem; color: #d5e4df; }
+    .season {
+      margin-top: 1.1rem;
+      padding: 0.9rem 1rem;
+      border-left: 3px solid var(--brass);
+      background: rgba(6, 34, 38, 0.45);
+      font-family: "Bodoni Moda", Palatino, serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--brass-soft);
+    }
+    .season-note {
+      margin-top: 0.85rem;
+      font-size: 0.95rem;
+      color: #9bb8b4;
+    }
+
+    .practical { background: var(--sail-deep); }
+    .facts {
+      display: grid;
+      gap: 0.7rem;
+    }
+    @media (min-width: 560px) {
+      .facts { grid-template-columns: 1fr 1fr; }
+    }
+    .fact {
+      background: var(--sail);
+      padding: 0.95rem 1rem;
+    }
+    .fact h3 {
+      font-family: "Bodoni Moda", Palatino, serif;
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--estuary);
+      margin-bottom: 0.3rem;
+    }
+    .fact p { color: var(--muted); font-size: 0.98rem; }
+
+    .chippy {
+      margin-top: 1.35rem;
+      padding: 1rem 1.05rem;
+      background: var(--sail);
+      border-left: 3px solid var(--brass-deep);
+    }
+    .chippy h3 {
+      font-family: "Bodoni Moda", Palatino, serif;
+      font-size: 1.12rem;
+      color: var(--estuary);
+      margin-bottom: 0.3rem;
+    }
+    .chippy p { color: var(--muted); }
+
+    .visit {
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 14px),
+        linear-gradient(180deg, var(--granite) 0%, var(--granite-deep) 100%);
+      color: var(--sail);
+    }
+    .visit h2 { color: var(--sail); }
+    .visit .eyebrow { color: var(--brass-soft); }
+    .visit a { color: var(--brass-soft); }
+    .visit a:hover { color: #f0d9a0; }
+    .visit address {
+      font-family: "Bodoni Moda", Palatino, serif;
+      font-style: normal;
+      font-size: 1.25rem;
+      line-height: 1.4;
+      margin: 0.15rem 0 1.15rem;
+    }
+    .visit dl { display: grid; gap: 0.85rem; }
+    .visit dt {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass-soft);
+    }
+    .visit dd { margin-top: 0.15rem; }
+    .score-row {
+      margin-top: 1.4rem;
+      padding: 0.95rem 1rem;
+      background: rgba(6, 34, 38, 0.35);
+    }
+    .score-row strong {
+      font-family: "Bodoni Moda", Palatino, serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      display: block;
+      line-height: 1;
+    }
+    .score-row span {
+      display: block;
+      margin-top: 0.35rem;
+      color: #c5d6d2;
+      font-size: 0.95rem;
+    }
+    .scores-note {
+      margin-top: 0.7rem;
+      font-size: 0.9rem;
+      color: #9bb8b4;
+    }
+
+    footer.site {
+      background: var(--estuary-deep);
+      color: var(--foam);
+      padding: 1.6rem 0 1.8rem;
+    }
+    footer .shop {
+      font-family: "Bodoni Moda", Palatino, serif;
+      font-size: 1.15rem;
+      color: var(--sail);
+    }
+    footer .around {
+      margin-top: 0.95rem;
+    }
+    footer .around p {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brass-soft);
+      margin-bottom: 0.4rem;
+    }
+    footer .around ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.85rem;
+    }
+    footer .around a {
+      color: var(--foam);
+      font-size: 0.92rem;
+    }
+    footer .around a:hover { color: var(--brass-soft); }
+
+    .dock {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 15;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--estuary-deep);
+      border-top: 2px solid var(--brass);
+    }
+    .dock a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.1rem;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .dock .call {
+      background: var(--brass);
+      color: var(--estuary-deep);
+    }
+    .dock .mail {
+      color: var(--sail);
+    }
+    .dock .call:hover { background: var(--brass-soft); }
+    .dock .mail:hover { color: var(--brass-soft); }
+
+    @media (min-width: 720px) {
+      body { padding-bottom: 0; }
+      .dock { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site">
+    <nav class="nav" aria-label="Page">
+      <a class="nav-mark" href="#main">
+        The King of Prussia
+        <span>Town Quay, Fowey</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#eat">Eat</a></li>
+        <li><a href="#stay">Stay</a></li>
+        <li><a href="#carters">Carter's</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a class="call" href="tel:+441726211061">Call</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="lantern" aria-hidden="true"></div>
+        <p class="where">Town Quay, Fowey</p>
+        <h1 id="hero-title">The King <em>of Prussia</em></h1>
+        <p class="line">A historic pub with rooms, standing on Fowey's Town Quay for centuries. Restored — old-world charm with a touch of modern comfort.</p>
+        <p class="rooms">Six bedrooms look over the Fowey Estuary.</p>
+        <address>3 Town Quay, Fowey PL23 1AT</address>
+        <div class="actions">
+          <a class="btn btn-solid" href="tel:+441726211061">Call 01726 211061</a>
+          <a class="btn btn-ghost" href="mailto:enquiries@thekingfowey.co.uk">Email us</a>
+        </div>
+      </div>
+      <div class="tide" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" focusable="false">
+          <path fill="#f5edd9" d="M0 48c120 22 240-22 360-18s240 40 360 32 240-48 360-28 240 40 360 18v28H0z"/>
+          <path fill="#e7d8bc" opacity="0.45" d="M0 56c140 18 220-26 380-14s250 36 380 22 250-44 380-20 220 28 300 12v24H0z"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="house" id="eat">
+      <div class="wrap">
+        <p class="eyebrow">The pub</p>
+        <h2>Teresa and her team</h2>
+        <p>Teresa and her team. Head chef Scott Williams. Proper British food — comforting pub classics done right, and seasonal dishes.</p>
+        <p>A passionate kitchen, imaginative menus, local produce and suppliers. A well-stocked bar. A warm welcome to locals and visitors, at the heart of the town.</p>
+        <p>We host events from summer BBQs to Christmas parties. Ask by telephone or email — there is no calendar on this page.</p>
+        <div class="windows" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="hours" id="hours" aria-labelledby="hours-title">
+      <div class="wrap">
+        <p class="eyebrow">Kitchen and bar</p>
+        <h2 id="hours-title">When we are open</h2>
+        <p class="lede">Monday is closed, except for bank holidays.</p>
+        <table class="tide-table">
+          <thead>
+            <tr>
+              <th scope="col">Day</th>
+              <th scope="col">Food</th>
+              <th scope="col">Bar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Monday</th>
+              <td class="shut">Closed <span>(except bank holidays)</span></td>
+              <td class="shut">Closed</td>
+            </tr>
+            <tr>
+              <th scope="row">Tuesday–Saturday</th>
+              <td>Food served 12–9</td>
+              <td>Bar open 12–close</td>
+            </tr>
+            <tr>
+              <th scope="row">Sunday</th>
+              <td>Roast 12–5pm</td>
+              <td>Bar open 12–close</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="tables" id="tables">
+      <div class="wrap">
+        <p class="eyebrow">A table</p>
+        <h2>Six or fewer — seven or more, call</h2>
+        <div class="rules">
+          <article class="rule">
+            <strong>Up to six</strong>
+            <p>Bookings of up to six guests. Call or email — there is no form on this page.</p>
+          </article>
+          <article class="rule">
+            <strong>Seven or more</strong>
+            <p>Parties of seven or more, please call or email.</p>
+          </article>
+          <article class="rule">
+            <strong>Two hours</strong>
+            <p>Reservations are allocated a two-hour period.</p>
+          </article>
+          <article class="rule">
+            <strong>Windows and drinks</strong>
+            <p>We cannot guarantee a window table. We do not accept table bookings for drinks.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="stay" id="stay">
+      <div class="wrap">
+        <p class="eyebrow">Stay</p>
+        <h2>Six rooms over the estuary</h2>
+        <p class="lede">Upstairs: six characterful bedrooms overlooking the Fowey Estuary. Cosy touches, river views, en suites. Super king and double beds, unique décor, plush beds.</p>
+        <p>At the heart of Fowey, with independent shops, bars and restaurants on the doorstep. Walk, boat, or bus — no need to drive.</p>
+        <p>Breakfast. Seasonal small plates at lunch. Evening dinner, or a late cocktail or a three-course meal.</p>
+        <div class="stay-facts">
+          <span>Six rooms</span>
+          <span>River views</span>
+          <span>En suite</span>
+          <span>Super king and double</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-ink" href="tel:+441726211061">Call to stay</a>
+          <a class="btn btn-line" href="mailto:enquiries@thekingfowey.co.uk">Email to stay</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="carters" id="carters">
+      <div class="wrap">
+        <p class="eyebrow">On the quay</p>
+        <h2>Carter's</h2>
+        <p>Carter's bar at The King of Prussia, named after smuggler John Carter. A homage to Cornwall's rebellious spirit and maritime history.</p>
+        <p>A quayside bar.</p>
+        <p class="season">We are back open for the season.</p>
+        <p class="season-note">Hours for Carter's are not listed here. Please telephone before you set out.</p>
+      </div>
+    </section>
+
+    <section class="practical" id="practical">
+      <div class="wrap">
+        <p class="eyebrow">Before you come</p>
+        <h2>Children, dogs, parking</h2>
+        <div class="facts">
+          <article class="fact">
+            <h3>Children</h3>
+            <p>Children are welcome. Access is tricky, given the age and structure of the building. We are unable to accommodate pushchairs. There is a separate children's menu; we will adapt dishes for allergies.</p>
+          </article>
+          <article class="fact">
+            <h3>Dogs</h3>
+            <p>The restaurant is small — tell us at booking. Dogs should be dry and clean, not after a muddy walk or a swim.</p>
+          </article>
+          <article class="fact">
+            <h3>Allergies</h3>
+            <p>Dietary requirements: please tell us when you book. We will adapt dishes where we can.</p>
+          </article>
+          <article class="fact">
+            <h3>Parking</h3>
+            <p>Parking is limited. Use the public car parks around Fowey. You can drop off outside, then park.</p>
+          </article>
+        </div>
+        <aside class="chippy">
+          <h3>Webbsters Fish &amp; Chips</h3>
+          <p>Now open on Webb Street — just off the quay, down the side of The King of Prussia. Sundays and Mondays 12–5; Thursday–Saturday 12–3 and 5–9; closed Tuesdays and Wednesdays.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="wrap">
+        <p class="eyebrow">Visit</p>
+        <h2>3 Town Quay</h2>
+        <address>
+          3 Town Quay<br>
+          Fowey<br>
+          PL23 1AT
+        </address>
+        <dl>
+          <div>
+            <dt>Telephone</dt>
+            <dd><a href="tel:+441726211061">01726 211061</a></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:enquiries@thekingfowey.co.uk">enquiries@thekingfowey.co.uk</a></dd>
+          </div>
+          <div>
+            <dt>Kitchen</dt>
+            <dd>Tuesday–Saturday food 12–9; Sunday roast 12–5pm. Monday closed except bank holidays.</dd>
+          </div>
+          <div>
+            <dt>Map</dt>
+            <dd><a href="https://www.openstreetmap.org/search?query=3%20Town%20Quay%20Fowey%20PL23%201AT">Open in OpenStreetMap</a></dd>
+          </div>
+        </dl>
+        <div class="score-row">
+          <strong>4.3</strong>
+          <span>TripAdvisor · about 735 reviews</span>
+        </div>
+        <p class="scores-note">About — the counts move. We have not put other people’s words on this page.</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="tel:+441726211061">Call 01726 211061</a>
+          <a class="btn btn-ghost" href="mailto:enquiries@thekingfowey.co.uk">Email us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <p class="shop">The King of Prussia · Fowey</p>
+      <nav class="around" aria-label="Other shops">
+        <p>Also around</p>
+        <ul>
+          <li><a href="https://suifei.github.io/lezzet-scarborough-demo/">Lezzet, Scarborough</a></li>
+          <li><a href="https://suifei.github.io/salcombe-deli-demo/">The Salcombe Delicatessen</a></li>
+          <li><a href="https://suifei.github.io/wardroom-salcombe-demo/">The Wardroom, Salcombe</a></li>
+          <li><a href="https://suifei.github.io/harbour-inn-padstow-demo/">The Harbour Inn, Padstow</a></li>
+          <li><a href="https://suifei.github.io/london-inn-padstow-demo/">The London Inn, Padstow</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <nav class="dock" aria-label="Call or email">
+    <a class="call" href="tel:+441726211061">Call</a>
+    <a class="mail" href="mailto:enquiries@thekingfowey.co.uk">Email</a>
+  </nav>
+</body>
+</html>
